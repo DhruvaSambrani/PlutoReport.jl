@@ -10,4 +10,5 @@ PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
 
 [compat]
+Reexport = "1"
 HypertextLiteral = "0.9"
