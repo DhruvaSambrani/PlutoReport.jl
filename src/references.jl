@@ -2,6 +2,7 @@
     display_bibentry(entry::Bibliography.BibInternal.Entry)::HypertextLiteral.Result
 
 Returns a display for a bibentry.
+Must be the last statement in a cell.
 
 See also [`display_bibliography`](@ref)
 """
@@ -23,6 +24,7 @@ end
     display_bibliography(bibtexpath::String, citations) ::HypertextLiteral.Result
 
 Returns all cited references from a reference BibTex file at `bibtexpath` and `citations`.
+Must be the last statement in a cell.
 
 See also [`@cite_str`](@ref), [`References`](@ref)
 """
@@ -66,7 +68,7 @@ end
     References() :: HypertextLiteral.Result
 
 Returns a PlutoUI widget which updates a Bond with the list of all citations (with repetition) in the report.
-Use with [`display_bibliography`](@ref)
+Use with [`display_bibliography`](@ref), with this bound to a variable using `@bind`
 
 See also [`display_bibliography`](@ref), [`@cite_str`](@ref)
 """

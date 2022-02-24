@@ -13,6 +13,7 @@ PresentationControls = NamedTuple{(:presentation_mode, :max_time, :clock),Tuple{
     timeleft(pvals::PresentationControls) :: HypertextLiteral.Result
 
 Returns  string which displays the time left in talk.
+Must be the last statement in a cell.
 
 See also [`presentation_ui`](@ref), [`presentation_controls`](@ref), [`PresentationControls`](@ref)
 """
@@ -25,6 +26,7 @@ end
     presentation(pvals::PresentationControls) :: HypertextLiteral.Result
 
 Returns htl string which turns UI into presentation mode.
+Must be the last statement in a cell.
 
 See also [`presentation_ui`](@ref), [`presentation_controls`](@ref), [`PresentationControls`](@ref)
 """
@@ -40,6 +42,7 @@ end
     presentation_ui(pvals::PresentationControls) :: HypertextLiteral.Result
 
 Returns htl string with [`presentation`](@ref) and [`timeleft`](@ref)
+Must be the last statement in a cell.
 
 See also [`presentation_controls`](@ref), [`PresentationControls`](@ref)
 """
@@ -51,6 +54,7 @@ end
     presentation_controls(aside::Bool = true) :: PlutoUI.CombineNotebook.CombinedBonds
 
 Returns a PlutoUI widget which returns a [`PresentationControls`](@ref), and acts as a control panel for [`presentation_ui`](@ref).
+Must be bound to a variable using `PlutoUI.bind`.
 
 # Arguments
 

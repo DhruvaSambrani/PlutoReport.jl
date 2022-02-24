@@ -37,6 +37,7 @@ export apply_css_fixes,
     apply_css_fixes()
 
 Apply fixes to Pluto's UI to make it better for reports and presentations.
+Must be the last statement in a cell.
 """
 function apply_css_fixes()
     return html"""
