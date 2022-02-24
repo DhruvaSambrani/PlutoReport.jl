@@ -1,0 +1,11 @@
+name = "PlutoReport"
+uuid = "ab5eb977-4f23-42a0-954d-2743fb6218c4"
+authors = ["Dhruva Sambrani <44899822+DhruvaSambrani@users.noreply.github.com>"]
+version = "0.1.0"
+
+[deps]
+Bibliography = "f1be7e48-bf82-45af-a471-ae754a193061"
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+HypertextLiteral = "ac1192a8-f4b3-4bfe-ba22-af5b92cd3ab2"
+PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
