@@ -1,0 +1,73 @@
+### A Pluto.jl notebook ###
+# v0.18.0
+
+using Markdown
+using InteractiveUtils
+
+# This Pluto notebook uses @bind for interactivity. When running this notebook outside of Pluto, the following 'mock version' of @bind gives bound variables a default value (instead of an error).
+macro bind(def, element)
+    quote
+        local iv = try Base.loaded_modules[Base.PkgId(Base.UUID("6e696c72-6542-2067-7265-42206c756150"), "AbstractPlutoDingetjes")].Bonds.initial_value catch; b -> missing; end
+        local el = $(esc(element))
+        global $(esc(def)) = Core.applicable(Base.get, el) ? Base.get(el) : iv(el)
+        el
+    end
+end
+
+# ╔═╡ d22e842a-9405-11ec-0fb8-ebd2d0626ed1
+begin
+    import Pkg
+    Pkg.add(Pkg.PackageSpec(url="https://github.com/DhruvaSambrani/PlutoReport.jl"))
+	using PlutoReport
+end
+
+# ╔═╡ dd29548f-9e36-4bfb-99b8-a8678755fb45
+@bind pvals presentation_controls(aside=true)
+
+# ╔═╡ 3cfa2562-4ab9-4b5c-b87e-604bf6a1a68c
+md"""
+$(make_title("Test", "This is a Subtitle", "Dhruva Sambrani", "Department of Physics, IISER Mohali"))
+$(apply_css_fixes())
+$(presentation_ui(pvals))
+"""
+
+# ╔═╡ 7a3fbc03-4e36-4c25-9947-f823040e69b1
+md"""
+## Another slide
+"""
+
+# ╔═╡ e310d08f-f7cd-47fb-aef5-20f50a3520d8
+md"""
+### Heading
+"""
+
+# ╔═╡ c5ec3224-03c3-48fe-903a-105f976c4203
+md"""This is a citation $(cite"test2")"""
+
+# ╔═╡ fe0d4fb1-81aa-4e0c-9ed6-ee0915deb65d
+cite"test1"
+
+# ╔═╡ e74f9cd4-4b15-4d0c-b6dd-a8787221e01a
+cite"test3"
+
+# ╔═╡ b7be0e28-df6c-415a-8b8b-5a780aedb464
+cite"test1"
+
+# ╔═╡ b6f3d7d1-ecf0-4b44-b23c-5b49b0513e09
+@bind references References()
+
+# ╔═╡ 145ce391-7089-45ea-8e67-54a898c8d0ae
+values(display_bibliography("bibliotest.bib", references))
+
+# ╔═╡ Cell order:
+# ╠═d22e842a-9405-11ec-0fb8-ebd2d0626ed1
+# ╠═dd29548f-9e36-4bfb-99b8-a8678755fb45
+# ╟─3cfa2562-4ab9-4b5c-b87e-604bf6a1a68c
+# ╟─7a3fbc03-4e36-4c25-9947-f823040e69b1
+# ╟─e310d08f-f7cd-47fb-aef5-20f50a3520d8
+# ╠═c5ec3224-03c3-48fe-903a-105f976c4203
+# ╠═fe0d4fb1-81aa-4e0c-9ed6-ee0915deb65d
+# ╠═e74f9cd4-4b15-4d0c-b6dd-a8787221e01a
+# ╟─b7be0e28-df6c-415a-8b8b-5a780aedb464
+# ╟─b6f3d7d1-ecf0-4b44-b23c-5b49b0513e09
+# ╟─145ce391-7089-45ea-8e67-54a898c8d0ae
