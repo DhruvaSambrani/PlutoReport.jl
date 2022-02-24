@@ -17,7 +17,7 @@ end
 
 ## Example
 
-You can find an example notebook [here]("./notebook.jl") with the associated bibtex file [here]("./bibliotest.bib"). Place both in the same folder and run the notebook via Pluto.
+You can find an example notebook [here](./example_notebook) with the associated bibtex file [here](./bibliotest.bib). Place both in the same folder and run the notebook via Pluto.
 
 ## API Documentation
 
