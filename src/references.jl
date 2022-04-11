@@ -10,7 +10,7 @@ function display_bibentry(entry::Bibliography.BibInternal.Entry)::HypertextLiter
     @htl (
         """
         <li id="$(entry.id)">
-            <b>[$(entry.id)]:</b>
+            <b style="cursor:pointer" data-link='$(Bibliography.xlink(entry))'>[$(entry.id)]:</b>
                 [$(Bibliography.xyear(entry))] 
                 <a href="$(Bibliography.xlink(entry))"><span style="font-size: 1.1rem;">$(Bibliography.xtitle(entry));</span></a>
                 <i>$(Bibliography.xnames(entry))</i>
@@ -24,7 +24,7 @@ end
     display_bibliography(bibtexpath::String, citations) ::HypertextLiteral.Result
 
 Returns all cited references from a reference BibTex file at `bibtexpath` and `citations`.
-Must be the last statement in a cell.
+It can also be bound to a variable to be used with [`show_abstract`](@ref)
 
 See also [`@cite_str`](@ref), [`References`](@ref)
 """
@@ -34,14 +34,38 @@ function display_bibliography(bibtexpath::String, citations)::HypertextLiteral.R
     end
     bibs = import_bibtex(bibtexpath)
     entries = getindex.(Ref(bibs), unique(citations))
-    return @htl("""<ol>$(display_bibentry.(values(entries)))</ol>""")
+    return @htl("""
+    <span>
+    <script>
+    const span = currentScript.parentElement
+    Array.from(span.getElementsByTagName('b')).map(el=>{
+        el.addEventListener("click", (e)=>{
+            span.value = el.getAttribute('data-link')
+            span.dispatchEvent(new CustomEvent("input"))
+            e.preventDefault()
+        })
+    })
+    </script>
+    <ol>$(display_bibentry.(values(entries)))</ol>
+    </span>
+    """)
 end
 
 
 function cite(s::String)::HypertextLiteral.Result
     @htl """
+    <style>
+    .cite {
+        cursor: pointer;
+        background: #ff830088;
+        color: white;
+        font-weight: bold;
+        padding: 4px !important;
+        border-radius: 8px;
+    }
+    </style>
     <script>document.getElementById("refresh_references").click()</script>
-    <a style="cursor: pointer" onclick="document.getElementById('refresh_references').scrollIntoView({block: 'center'})">
+    <a class='cite' onclick="document.getElementById('refresh_references').scrollIntoView({block: 'center'})">
     [<span class="reference">$(s)</span>]
     </a>"""
 end
@@ -94,4 +118,66 @@ function References()
     </script>
     </span>
     """)
+end
+
+function arxiv_abstract(link)
+    HTML(match(
+        r"<blockquote.*?>(.*?)</blockquote>"ms,
+        read(download(link), String)
+    ).captures[1])
+end
+
+function isarxiv(link)
+    match()
+end
+
+"""
+    show_abstract(link; aside=true)
+
+Show the abstract of the link clicked in the [References](@ref) section
+
+See also [`display_bibliography`](@ref), [`@cite_str`](@ref)
+"""
+function show_abstract(link; aside = true)
+    if !(link isa String)
+        text = @htl "No citation link clicked"
+    elseif isarxiv(link)
+        text = arxiv_abstract(link)
+    end
+    @htl """
+    <style>
+    .aside {
+    	position: fixed;
+    	top: 60px;
+    	left: 10px;
+    	max-width: 275px;
+    	max-height: 400px;
+    }
+    #cite-article-container {
+    	background-color: #484848;
+    	padding: 12px;
+    	border-radius: 4px;
+    	z-index: 10000000;
+    	display: flex;
+    	flex-direction: column;
+    }
+    #cite-article {
+    	overflow: auto;
+    }
+    .descriptor{
+    	font-weight: bolder;
+    }
+    .article-hide {
+    	display: none;
+    }
+    #cite-article-container h5 {
+    	cursor: pointer;
+    	color: #669966;
+    }
+    </style>
+    <div id="cite-article-container" class="$(aside ? "aside" : "")">
+    	<h5 onclick="document.getElementById('cite-article').classList.toggle('article-hide')">Abstract</h5>
+    	<div id="cite-article" class="article-hide">$(text)</div>
+    </div>
+    """
 end

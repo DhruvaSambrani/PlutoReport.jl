@@ -17,7 +17,7 @@ end
 # ╔═╡ d22e842a-9405-11ec-0fb8-ebd2d0626ed1
 begin
     import Pkg
-    Pkg.add(Pkg.PackageSpec(url="https://github.com/DhruvaSambrani/PlutoReport.jl"))
+    Pkg.activate("v1.7", shared=true)
 	using PlutoReport
 end
 
@@ -66,7 +66,19 @@ cite"test1"
 @bind references References()
 
 # ╔═╡ 145ce391-7089-45ea-8e67-54a898c8d0ae
-values(display_bibliography("bibliotest.bib", references))
+@bind k display_bibliography("bibliotest.bib", references)
+
+# ╔═╡ 4fd2d72d-50b8-441b-8b2e-fcc229e6e5d7
+k
+
+# ╔═╡ 8a84694c-2f71-4bca-ad6d-7473028868a8
+
+
+# ╔═╡ c34a6072-0ab1-48b9-97a6-ef3639ab2a82
+show_abstract(k, aside=true)
+
+# ╔═╡ fc5d35c6-e59e-47e9-b43d-928ba0034764
+PlutoReport.__version__
 
 # ╔═╡ Cell order:
 # ╠═d22e842a-9405-11ec-0fb8-ebd2d0626ed1
@@ -80,5 +92,9 @@ values(display_bibliography("bibliotest.bib", references))
 # ╠═fe0d4fb1-81aa-4e0c-9ed6-ee0915deb65d
 # ╠═e74f9cd4-4b15-4d0c-b6dd-a8787221e01a
 # ╠═b7be0e28-df6c-415a-8b8b-5a780aedb464
-# ╟─b6f3d7d1-ecf0-4b44-b23c-5b49b0513e09
-# ╟─145ce391-7089-45ea-8e67-54a898c8d0ae
+# ╠═b6f3d7d1-ecf0-4b44-b23c-5b49b0513e09
+# ╠═145ce391-7089-45ea-8e67-54a898c8d0ae
+# ╠═4fd2d72d-50b8-441b-8b2e-fcc229e6e5d7
+# ╠═8a84694c-2f71-4bca-ad6d-7473028868a8
+# ╠═c34a6072-0ab1-48b9-97a6-ef3639ab2a82
+# ╠═fc5d35c6-e59e-47e9-b43d-928ba0034764
