@@ -10,11 +10,11 @@ function display_bibentry(entry::Bibliography.BibInternal.Entry)::HypertextLiter
     @htl (
         """
         <li id="$(entry.id)">
-            <b style="cursor:pointer" data-link='$(Bibliography.xlink(entry))'>[$(entry.id)]:</b>
-                [$(Bibliography.xyear(entry))] 
-                <a href="$(Bibliography.xlink(entry))"><span style="font-size: 1.1rem;">$(Bibliography.xtitle(entry));</span></a>
-                <i>$(Bibliography.xnames(entry))</i>
-                <a href="$(entry.access.doi)">$(entry.access.doi)</a>
+            <b style="cursor:pointer" data-link='$(entry.access.doi)::$(Bibliography.xlink(entry))'>[$(entry.id)]:</b>
+            [$(Bibliography.xyear(entry))] 
+            <a href="$(Bibliography.xlink(entry))"><span style="font-size: 1.1rem;">$(Bibliography.xtitle(entry));</span></a>
+            <i>$(Bibliography.xnames(entry))</i>;
+            DOI:$(entry.access.doi)
         </li>
         """
     )
@@ -66,7 +66,7 @@ function cite(s::String)::HypertextLiteral.Result
     </style>
     <script>document.getElementById("refresh_references").click()</script>
     <a class='cite' onclick="document.getElementById('refresh_references').scrollIntoView({block: 'center'})">
-    [<span class="reference">$(s)</span>]
+    [<span class="reference" data-pl-cite-id="$(first(split(s, "::")))">$(last(split(s, "::")))</span>]
     </a>"""
 end
 
@@ -104,7 +104,7 @@ function References()
 
     <script>
     function getcitelist() {
-        var citelist = Array.from(document.querySelectorAll(".reference")).map( t=>{return t.innerHTML})
+    var citelist = Array.from(document.querySelectorAll(".reference")).map( t=>{return t.dataset.plCiteId})
         console.log(citelist)
         return citelist
     }
@@ -120,64 +120,3 @@ function References()
     """)
 end
 
-function arxiv_abstract(link)
-    HTML(match(
-        r"<blockquote.*?>(.*?)</blockquote>"ms,
-        read(download(link), String)
-    ).captures[1])
-end
-
-function isarxiv(link)
-    match()
-end
-
-"""
-    show_abstract(link; aside=true)
-
-Show the abstract of the link clicked in the [References](@ref) section
-
-See also [`display_bibliography`](@ref), [`@cite_str`](@ref)
-"""
-function show_abstract(link; aside = true)
-    if !(link isa String)
-        text = @htl "No citation link clicked"
-    elseif isarxiv(link)
-        text = arxiv_abstract(link)
-    end
-    @htl """
-    <style>
-    .aside {
-    	position: fixed;
-    	top: 60px;
-    	left: 10px;
-    	max-width: 275px;
-    	max-height: 400px;
-    }
-    #cite-article-container {
-    	background-color: #484848;
-    	padding: 12px;
-    	border-radius: 4px;
-    	z-index: 10000000;
-    	display: flex;
-    	flex-direction: column;
-    }
-    #cite-article {
-    	overflow: auto;
-    }
-    .descriptor{
-    	font-weight: bolder;
-    }
-    .article-hide {
-    	display: none;
-    }
-    #cite-article-container h5 {
-    	cursor: pointer;
-    	color: #669966;
-    }
-    </style>
-    <div id="cite-article-container" class="$(aside ? "aside" : "")">
-    	<h5 onclick="document.getElementById('cite-article').classList.toggle('article-hide')">Abstract</h5>
-    	<div id="cite-article" class="article-hide">$(text)</div>
-    </div>
-    """
-end

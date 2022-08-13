@@ -2,26 +2,21 @@
 
 ## Installation
 
-Right now, the package is not published to `General` repository. Hence, to use this package, you must use the following code in the top cell.
+In any cell of your Pluto notebook,
 
 ```julia
-begin
-    import Pkg
-    Pkg.add(PackageSpec(url="https://github.com/DhruvaSambrani/PlutoReport.jl"))
-    using PlutoReport
-end
+using PlutoReport
 ```
 
-!!! warning Note
-    This will disable Pluto's inbuild Pkg Manager.
+And you are done!!
 
 ## Example
 
-You can find an example notebook [here](./example_notebook) with the associated bibtex file [here](./bibliotest.bib). Place both in the same folder and run the notebook via Pluto.
+You can find an example notebooks [here](https://github.com/DhruvaSambrani/PlutoReport.jl/tree/main/examples) with the associated bibtex files. Make sure you have the notebook and bibtex files in the same folder!
 
 ## API Documentation
 
 ```@autodocs
 Modules = [PlutoReport]
-Pages   = ["presentation.jl", "references.jl", "Title.jl"]
+Pages   = ["presentation.jl", "references.jl", "Title.jl", "abstracts.jl"]
 ```

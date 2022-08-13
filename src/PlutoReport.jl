@@ -28,10 +28,14 @@ using Reexport
 @reexport using Bibliography
 @reexport using HypertextLiteral
 
+import Downloads
+import JSON3
+
 export apply_css_fixes,
     Title, make_title,
     PresentationControls, presentation_ui, presentation_controls,
-    References, display_bibliography, @cite_str, cite
+    References, display_bibliography, @cite_str, cite,
+    show_abstract
 
 """
     apply_css_fixes()
@@ -59,6 +63,6 @@ end
 include("presentation.jl")
 include("Title.jl")
 include("references.jl")
-
+include("abstracts.jl")
 
 end # module

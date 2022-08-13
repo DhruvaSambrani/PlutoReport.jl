@@ -1,5 +1,10 @@
 ### A Pluto.jl notebook ###
-# v0.19.9
+# v0.19.11
+
+#> [frontmatter]
+#> title = "Example Notebook"
+#> date = "2022-08-13"
+#> description = "This is an example notebook"
 
 using Markdown
 using InteractiveUtils
@@ -21,17 +26,69 @@ begin
 	using PlutoReport
 end
 
-# ╔═╡ a0ccb87e-3911-4dba-9114-b4633b34c621
-Title("A Title", "A catchy subtitle", "Ashish Sharma", "Institute of Smart People, India")
-
 # ╔═╡ a078aaab-55ff-4156-a487-0031c2b96520
-@bind _pcon presentation_controls(aside=false)
+@bind _pcon presentation_controls(aside = true)
+
+# ╔═╡ 387df748-dfbb-4834-88e5-b067333acfca
+apply_css_fixes()
 
 # ╔═╡ aae13cfb-9002-4c69-b2d1-1675ecddcfba
 presentation_ui(_pcon)
 
+# ╔═╡ a0ccb87e-3911-4dba-9114-b4633b34c621
+Title(
+	"A Title", 
+	"A catchy subtitle", 
+	"Ashish Sharma", 
+	"Institute of Smart People, India"
+)
+
+# ╔═╡ 5a392c22-b692-48ac-a0d2-5577c238f927
+md"""
+# This is a Heading 
+
+These are some cool citations $(cite"fons_van_der_plas_2022_6916713::pluto.jl") and others
+
+A **list** of things I like to eat
+- pizza
+- pasta
+- dosa
+- idly
+
+Same, but _ordered_ - 
+1. pizza
+2. pasta
+3. dosa
+4. idly
+
+## Subheading 1
+
+Other markdown can also be used! Make [Links](https://github.com/fonsp/Pluto.jl), and 
+
+![Images with alt-text](https://raw.githubusercontent.com/fonsp/Pluto.jl/dd0ead4caa2d29a3a2cfa1196d31e3114782d363/frontend/img/logo_white_contour.svg)
+
+The $(cite"Or_s_2014::following") is a great introduction to Tensor Network States
+
+"""
+
+# ╔═╡ 28ef6ac5-4475-402f-a963-420e4b320f4b
+@bind refs References()
+
+# ╔═╡ 6f58d88f-1cbd-4190-a5fd-234ddb0b64b0
+@bind abstractlink display_bibliography("bibliography.bib", refs)
+
+# ╔═╡ c7db3e28-6767-49b1-ba34-4cfe8bd2d134
+with_terminal() do
+	show_abstract(abstractlink)
+end
+
 # ╔═╡ Cell order:
-# ╟─12c7ee0c-68d7-4c34-8956-e9f1bb0ce380
+# ╠═12c7ee0c-68d7-4c34-8956-e9f1bb0ce380
+# ╠═a078aaab-55ff-4156-a487-0031c2b96520
+# ╠═387df748-dfbb-4834-88e5-b067333acfca
+# ╠═aae13cfb-9002-4c69-b2d1-1675ecddcfba
 # ╟─a0ccb87e-3911-4dba-9114-b4633b34c621
-# ╟─a078aaab-55ff-4156-a487-0031c2b96520
-# ╟─aae13cfb-9002-4c69-b2d1-1675ecddcfba
+# ╟─5a392c22-b692-48ac-a0d2-5577c238f927
+# ╟─28ef6ac5-4475-402f-a963-420e4b320f4b
+# ╠═6f58d88f-1cbd-4190-a5fd-234ddb0b64b0
+# ╠═c7db3e28-6767-49b1-ba34-4cfe8bd2d134
