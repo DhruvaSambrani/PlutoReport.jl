@@ -1,7 +1,7 @@
 name = "PlutoReport"
 uuid = "ab5eb977-4f23-42a0-954d-2743fb6218c4"
 authors = ["Dhruva Sambrani <44899822+DhruvaSambrani@users.noreply.github.com>"]
-version = "0.2.1"
+version = "0.2.0"
 
 [deps]
 Bibliography = "f1be7e48-bf82-45af-a471-ae754a193061"
