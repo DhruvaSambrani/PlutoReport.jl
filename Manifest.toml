@@ -1,8 +1,8 @@
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.8.0-rc4"
+julia_version = "1.8.0"
 manifest_format = "2.0"
-project_hash = "219a8f0a8144629cd9ba077e8bb4185d55486004"
+project_hash = "73079b8eb332c5740c784bcfc9140e840924e18b"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -51,9 +51,9 @@ version = "0.11.4"
 
 [[deps.Compat]]
 deps = ["Dates", "LinearAlgebra", "UUIDs"]
-git-tree-sha1 = "924cdca592bc16f14d2f7006754a621735280b74"
+git-tree-sha1 = "5856d3031cdb1f3b2b6340dfdc66b6d9a149a374"
 uuid = "34da2185-b29b-5c13-b0c7-acf172513d20"
-version = "4.1.0"
+version = "4.2.0"
 
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -86,9 +86,9 @@ version = "0.8.4"
 
 [[deps.HTTP]]
 deps = ["Base64", "CodecZlib", "Dates", "IniFile", "Logging", "LoggingExtras", "MbedTLS", "NetworkOptions", "Random", "SimpleBufferStream", "Sockets", "URIs", "UUIDs"]
-git-tree-sha1 = "f0956f8d42a92816d2bf062f8a6a6a0ad7f9b937"
+git-tree-sha1 = "59ba44e0aa49b87a8c7a8920ec76f8afe87ed502"
 uuid = "cd3eb016-35fb-5094-929b-558a96fad6f3"
-version = "1.2.1"
+version = "1.3.3"
 
 [[deps.Hyperscript]]
 deps = ["Test"]
@@ -188,9 +188,9 @@ uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
 
 [[deps.MbedTLS]]
 deps = ["Dates", "MbedTLS_jll", "MozillaCACerts_jll", "Random", "Sockets"]
-git-tree-sha1 = "d9ab10da9de748859a7780338e1d6566993d1f25"
+git-tree-sha1 = "ae6676d5f576ccd21b6789c2cbe2ba24fcc8075d"
 uuid = "739be429-bea8-5141-9913-cc70e7f3736d"
-version = "1.1.3"
+version = "1.1.5"
 
 [[deps.MbedTLS_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -220,9 +220,9 @@ version = "1.4.1"
 
 [[deps.Parsers]]
 deps = ["Dates"]
-git-tree-sha1 = "0044b23da09b5608b4ecacb4e5e6c6332f833a7e"
+git-tree-sha1 = "3d5bf43e3e8b412656404ed9466f1dcbf7c50269"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "2.3.2"
+version = "2.4.0"
 
 [[deps.Pkg]]
 deps = ["Artifacts", "Dates", "Downloads", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "Serialization", "TOML", "Tar", "UUIDs", "p7zip_jll"]
@@ -231,9 +231,9 @@ version = "1.8.0"
 
 [[deps.PlutoUI]]
 deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "Markdown", "Random", "Reexport", "UUIDs"]
-git-tree-sha1 = "8d1f54886b9037091edf146b517989fc4a09efec"
+git-tree-sha1 = "a602d7b0babfca89005da04d89223b867b55319f"
 uuid = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-version = "0.7.39"
+version = "0.7.40"
 
 [[deps.Preferences]]
 deps = ["TOML"]
@@ -289,9 +289,9 @@ version = "0.3.5"
 
 [[deps.StructTypes]]
 deps = ["Dates", "UUIDs"]
-git-tree-sha1 = "d24a825a95a6d98c385001212dc9020d609f2d4f"
+git-tree-sha1 = "82d3ea0d0211c13b1da2e05a41f39bfc54062890"
 uuid = "856f2bd8-1eba-4b0a-8007-ebc267875bd4"
-version = "1.8.1"
+version = "1.9.1"
 
 [[deps.TOML]]
 deps = ["Dates"]
@@ -309,9 +309,9 @@ uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [[deps.TranscodingStreams]]
 deps = ["Random", "Test"]
-git-tree-sha1 = "216b95ea110b5972db65aa90f88d8d89dcb8851c"
+git-tree-sha1 = "8a75929dcd3c38611db2f8d08546decb514fcadf"
 uuid = "3bb67fe8-82b1-5028-8e26-92a6c54297fa"
-version = "0.9.6"
+version = "0.9.9"
 
 [[deps.Tricks]]
 git-tree-sha1 = "6bac775f2d42a611cdfcd1fb217ee719630c4175"
