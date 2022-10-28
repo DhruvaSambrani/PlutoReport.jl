@@ -32,9 +32,9 @@ See also [`presentation_ui`](@ref), [`presentation_controls`](@ref), [`Presentat
 """
 function presentation(pvals::PresentationControls)::HypertextLiteral.Result
     if pvals.presentation_mode
-        htl"<script>document.body.classList.add('presentation')</script>"
+        htl"""<script>document.body.classList.add('presentation')</script><style type="text/css">* {cursor: inherit!important;}body {cursor: url(http://www.rw-designer.com/cursor-extern.php?id=102952), pointer !important;}</style>"""
     else
-        htl"<script>document.body.classList.remove('presentation')</script>"
+        htl"""<script>document.body.classList.remove('presentation')</script><style type="text/css">* {cursor: initial!important;}</style>"""
     end
 end
 

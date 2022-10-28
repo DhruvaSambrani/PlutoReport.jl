@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.11
+# v0.19.13
 
 #> [frontmatter]
 #> title = "Example Notebook"
@@ -43,6 +43,9 @@ Title(
 	"Institute of Smart People, India"
 )
 
+# ╔═╡ fc305d16-1458-4d75-ae13-440a923b67de
+TableOfContents()
+
 # ╔═╡ 5a392c22-b692-48ac-a0d2-5577c238f927
 md"""
 # This is a Heading 
@@ -78,17 +81,16 @@ The $(cite"Or_s_2014::following") is a great introduction to Tensor Network Stat
 @bind abstractlink display_bibliography("bibliography.bib", refs)
 
 # ╔═╡ c7db3e28-6767-49b1-ba34-4cfe8bd2d134
-with_terminal() do
-	show_abstract(abstractlink)
-end
+show_abstract(abstractlink)
 
 # ╔═╡ Cell order:
-# ╠═12c7ee0c-68d7-4c34-8956-e9f1bb0ce380
+# ╟─12c7ee0c-68d7-4c34-8956-e9f1bb0ce380
 # ╠═a078aaab-55ff-4156-a487-0031c2b96520
+# ╠═fc305d16-1458-4d75-ae13-440a923b67de
 # ╠═387df748-dfbb-4834-88e5-b067333acfca
-# ╠═aae13cfb-9002-4c69-b2d1-1675ecddcfba
+# ╟─aae13cfb-9002-4c69-b2d1-1675ecddcfba
 # ╟─a0ccb87e-3911-4dba-9114-b4633b34c621
 # ╟─5a392c22-b692-48ac-a0d2-5577c238f927
 # ╟─28ef6ac5-4475-402f-a963-420e4b320f4b
-# ╠═6f58d88f-1cbd-4190-a5fd-234ddb0b64b0
-# ╠═c7db3e28-6767-49b1-ba34-4cfe8bd2d134
+# ╟─6f58d88f-1cbd-4190-a5fd-234ddb0b64b0
+# ╟─c7db3e28-6767-49b1-ba34-4cfe8bd2d134

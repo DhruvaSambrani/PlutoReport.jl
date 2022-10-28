@@ -51,7 +51,7 @@ function show_abstract(link; aside = true)
     end
     @htl """
     <style>
-    .aside {
+    .aside-abstract {
     	position: fixed;
     	top: 60px;
     	left: 10px;
@@ -80,7 +80,7 @@ function show_abstract(link; aside = true)
     	color: #669966;
     }
     </style>
-    <div id="cite-article-container" class="$(aside ? "aside" : "")">
+    <div id="cite-article-container" class="$(aside ? "aside-abstract" : "")">
     	<h5 onclick="document.getElementById('cite-article').classList.toggle('article-hide')">Abstract</h5>
     	<div id="cite-article" class="article-hide">$(text)</div>
     </div>
