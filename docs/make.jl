@@ -9,7 +9,7 @@ using Documenter:
     makedocs
 using PlutoStaticHTML
 
-const NOTEBOOK_DIR = joinpath(@__DIR__, "..", "examples")
+const NOTEBOOK_DIR = joinpath(@__DIR__, "src", "notebooks")
 
 """
     build()
