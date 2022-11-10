@@ -10,8 +10,8 @@ using Documenter:
 
 using PlutoSliderServer
 
-PlutoSliderServer.export_notebooks("./../examples/notebook.jl")
-mv("../examples/notebook.html", "src/example.html")
+PlutoSliderServer.export_notebook("./../examples/notebook.jl")
+mv("../examples/notebook.html", "src/example.html", force=true)
 
 sitename = "PlutoReport.jl"
 pages = [
@@ -23,7 +23,7 @@ pages = [
 mathengine = MathJax3()
 prettyurls = get(ENV, "CI", nothing) == "true"
 format = HTML(; mathengine, prettyurls)
-modules = [PlutoStaticHTML]
+modules = [PlutoSliderServer]
 strict = true
 checkdocs = :none
 makedocs(; sitename, pages, format, modules, strict, checkdocs)
