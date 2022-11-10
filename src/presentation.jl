@@ -71,18 +71,32 @@ function presentation_controls(; aside::Bool = true)::PlutoUI.CombineNotebook.Co
     bottom: 40px;
     right: 10px;
 }
-#container {
-    background-color: #484848;
+.pcon-container {
+    background-color: #303030;
     padding: 8px;
     border-radius: 8px;
-    z-index: 10000000000
+	border: solid 1px #808080;
+    z-index: 10000000000;
+	transition: transform 300ms cubic-bezier(0.18, 0.89, 0.45, 1.12);
 }
-$(aside ? "#container #unit {
-    display: none;
-    }" : "" )
+.pcon-container.float-right.hide {
+	transform: translateX(calc(100% - 28px));
+}
+.pcon-title {
+	cursor: pointer!important;
+	width: 100%;
+	font-weight: bolder;
+	text-align: center;
+	font-size: 1.2rem;
+	border-bottom: solid 1px #888888;
+	border-radius: 4px;
+}
+p {
+	margin-block-end: 5px!important;
+}
 </style>
-<div id="container" class="$(aside ? "float-right" : "")">
-<b>Presentation Controls:</b><br>
+<div class="pcon-container $(aside ? "float-right " : "")">
+<p class="pcon-title" onclick="document.getElementsByClassName('pcon-container')[0].classList.toggle('hide')">Presentation Controls</p>
 <p>Presentation Mode: $(Child("presentation_mode", CheckBox()))</p>
 <p>Max time: $(Child("max_time", Scrubbable(5:5:120, default=15))) minutes</p>
 $(Child("clock", Clock()))
