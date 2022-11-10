@@ -10,7 +10,7 @@ if get(ENV, "BUILD_NOTEBOOK", "1") == "1"
     mv("../examples/notebook.html", "../docs/src/example.html", force=true)
 end
 
-makedocs(sitename="PlutoReport.jl", modules=[PlutoReport])
+makedocs(sitename="PlutoReport.jl", modules=[PlutoReport], versions=nothing)
 
 deploydocs(
     repo = "github.com/DhruvaSambrani/PlutoReport.jl.git"
