@@ -10,8 +10,8 @@ using Documenter:
 
 using PlutoSliderServer
 
-PlutoSliderServer.export_notebook("./../examples/notebook.jl")
-mv("../examples/notebook.html", "src/example.html", force=true)
+PlutoSliderServer.export_notebook("examples/notebook.jl")
+mv("examples/notebook.html", "docs/src/example.html", force=true)
 
 sitename = "PlutoReport.jl"
 pages = [
