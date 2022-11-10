@@ -7,32 +7,16 @@ using Documenter:
     asset,
     deploydocs,
     makedocs
-using PlutoStaticHTML
 
-const NOTEBOOK_DIR = joinpath(@__DIR__, "src", "notebooks")
+using PlutoSliderServer
 
-"""
-    build()
-Run all Pluto notebooks (".jl" files) in `NOTEBOOK_DIR`.
-"""
-function build()
-    println("Building notebooks in $NOTEBOOK_DIR")
-    oopts = OutputOptions(; append_build_context=false)
-    output_format = documenter_output
-    bopts = BuildOptions(NOTEBOOK_DIR; output_format)
-    build_notebooks(bopts, oopts)
-    return nothing
-end
-
-# Build the notebooks; defaults to true.
-if get(ENV, "BUILD_DOCS_NOTEBOOKS", "true") == "true"
-    build()
-end
+PlutoSliderServer.export_notebooks("./../examples/notebook.jl")
+mv("../examples/notebook.html", "src/example.html")
 
 sitename = "PlutoReport.jl"
 pages = [
     "PlutoReport" => "index.md",
-    "Example Notebook" => "notebooks/example.md"
+    "Example Notebook" => "example.html"
 ]
 
 # Using MathJax3 since Pluto uses that engine too.
