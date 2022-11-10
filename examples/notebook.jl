@@ -24,6 +24,7 @@ begin
 	# This section ...
 	import Pkg
 	Pkg.activate(joinpath(@__DIR__, ".."))
+	Pkg.instantiate()
 	# ... is not necessary
 	using PlutoReport
 end
