@@ -21,8 +21,10 @@ end
 
 # ╔═╡ 12c7ee0c-68d7-4c34-8956-e9f1bb0ce380
 begin
+	# This section ...
 	import Pkg
-	Pkg.activate("..")
+	Pkg.activate(joinpath(@__DIR__, ".."))
+	# ... is not necessary
 	using PlutoReport
 end
 
