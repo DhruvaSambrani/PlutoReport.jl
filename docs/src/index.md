@@ -1,5 +1,9 @@
 # Documentation for PlutoReport.jl
 
+```@meta
+CurrentModule = PlutoReport
+```
+
 ## Features
 
 1. A fancy title for your report - [Title](@ref)
@@ -29,5 +33,5 @@ If you just want to see how it looks like, look at the [hosted example page](./e
 
 ```@autodocs
 Modules = [PlutoReport]
-Pages   = ["presentation.jl", "references.jl", "Title.jl", "abstracts.jl"]
+Pages   = ["presentation.jl", "references.jl", "Title.jl", "abstracts.jl", "PlutoReport.jl"]
 ```
