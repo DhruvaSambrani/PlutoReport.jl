@@ -31,44 +31,45 @@ using Reexport
 import Downloads
 import JSON3
 
-export apply_css_fixes, 
+export apply_css_fixes,
     slidebreak, topslidebreak, centerslidebreak,
     Title, make_title,
     PresentationControls, presentation_ui, presentation_controls,
     References, display_bibliography, @cite_str, cite,
+    style_citations,
+    CiteCSS, Superscript, Highlighted, JustBold,
+    CiteStyle, By_Id, By_Number, By_AuthorDate,
     show_abstract
 
 """
-    apply_css_fixes()
+    apply_css_fixes(;helpbox=true, logs=true, footer=true, print=true)
 
 Apply fixes to Pluto's UI to make it better for reports and presentations.
+Set any of the parameters to false if you do not want to apply those.
 Must be the last statement in a cell.
 """
-function apply_css_fixes()
-    return html"""
+function apply_css_fixes(;helpbox=true, logs=true, footer=true, print=true)
+    printcss = """
+    @media print {
+        main {max-width: 100%; }
+        .markdown {font-size: 10pt;}
+        #refresh_references {display: none;}
+        pluto-cell { min-height: 0; }
+        pluto-output { overflow: hidden; }
+        .raw-html-wrapper span ol{ break-inside: unset; }
+    }
+    """
+
+    return @htl """
 <style>
-	pluto-helpbox {
-		display: none;
-	}
-	pluto-logs-container{
-		display:none
-	}
-	footer {
-		visibility: collapse;
-	}
-    .markdown{
-        font-size: 20px;
-    }
-    main {
-        max-width: 80%;
-    }
-    pluto-output>div>img {
-        margin: auto;
-        display: block;
-    }
-    .toc-row {
-        margin: 0 !important;
-    }
+    $(if helpbox "pluto-helpbox { display: none; }" end)
+    $(if logs "pluto-logs-container{ display:none; }" end)
+    $(if footer "footer {visibility: collapse;}" end)
+    .markdown{ font-size: 20px; }
+    main { max-width: 80%; }
+    pluto-output>div>img { margin: auto; display: block; }
+    .toc-row { margin: 0 !important; padding: 0 !important; }
+    $(if print printcss end)
 </style>
 <script>document.body.classList.add("disable_ui")</script>"""
 end

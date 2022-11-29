@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.14
+# v0.19.16
 
 #> [frontmatter]
 #> title = "Example Notebook"
@@ -107,7 +107,7 @@ Other markdown can also be used! Make [Links](https://github.com/fonsp/Pluto.jl)
 
 $(Resource("https://raw.githubusercontent.com/fonsp/Pluto.jl/dd0ead4caa2d29a3a2cfa1196d31e3114782d363/frontend/img/logo_white_contour.svg", :width=>"55%"))
 
-The $(cite"Or_s_2014::following") is a great introduction to Tensor Network States.
+The following $(cite"Or_s_2014") is a great introduction to Tensor Network States.
 """
 
 # ╔═╡ 972dbb43-7774-4ed9-8d2d-f62341d6cb3f
@@ -126,6 +126,14 @@ md"""
 # ╔═╡ 28ef6ac5-4475-402f-a963-420e4b320f4b
 @bind refs References()
 
+# ╔═╡ 14e81c39-c046-43a3-859d-39c1b5fa17d5
+md"""
+	We can also style the citations according to our choice. See the documentation
+"""
+
+# ╔═╡ 393f352d-cf58-4102-ac7d-c8c7d74f67bb
+style_citations(refs, "bibliography.bib", content=By_Number, css=Superscript)
+
 # ╔═╡ 831ff4e4-ab3f-4251-83ab-189c10360fd2
 md"""
 	Now let us display the references using `display_bibliography`, parametrized by a local file and the bound variable. 
@@ -137,11 +145,25 @@ md"""
 
 # ╔═╡ 59902dd5-63e3-4c90-a70e-3023e8529eac
 md"""
-	It would be nice if we could see atleast the abstract of the references. `bind` a variable to `display_bibliography`, and let `show_abstract` react to that. Now, clicking on any of the citations' id will result in the abstract being shown in the abstract panel (possibly collapsed)
+	It would be nice if we could see atleast the abstract of the references. `bind` a variable to `display_bibliography`, and let `show_abstract` react to that. Now, clicking on any of the citations' id will result in the abstract being shown in the abstract panel (possibly collapsed). This is a feature in alpha stage.
 """
 
 # ╔═╡ c7db3e28-6767-49b1-ba34-4cfe8bd2d134
 show_abstract(abstractlink)
+
+# ╔═╡ 31a4e944-c047-4268-87b4-1b604ae50f1f
+md"""
+	Finally you can always just hack your way through and override any css/js to make your report look exactly like you want it.
+"""
+
+# ╔═╡ 9fdf69e0-0957-4c76-9465-7728040e01d7
+html"""
+<style>
+.cite {
+	line-height: 0;
+}
+</style>
+"""
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -156,7 +178,7 @@ PlutoReport = "~0.3.0"
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.8.2"
+julia_version = "1.8.3"
 manifest_format = "2.0"
 project_hash = "804e38e0a54be4d1cdd82936cfb95482108590bc"
 
@@ -194,9 +216,9 @@ uuid = "f1be7e48-bf82-45af-a471-ae754a193061"
 version = "0.2.19"
 
 [[deps.BitFlags]]
-git-tree-sha1 = "629c6e4a7be8f427d268cebef2a5e3de6c50d462"
+git-tree-sha1 = "43b1a4a8f797c1cddadf60499a8a077d4af2cd2d"
 uuid = "d1d4a3ce-64b1-5f1a-9ba4-7e7e69966f35"
-version = "0.1.6"
+version = "0.1.7"
 
 [[deps.CodecZlib]]
 deps = ["TranscodingStreams", "Zlib_jll"]
@@ -212,9 +234,9 @@ version = "0.11.4"
 
 [[deps.Compat]]
 deps = ["Dates", "LinearAlgebra", "UUIDs"]
-git-tree-sha1 = "3ca828fe1b75fa84b021a7860bd039eaea84d2f2"
+git-tree-sha1 = "00a2cccc7f098ff3b66806862d275ca3db9e6e5a"
 uuid = "34da2185-b29b-5c13-b0c7-acf172513d20"
-version = "4.3.0"
+version = "4.5.0"
 
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -253,9 +275,9 @@ version = "0.8.4"
 
 [[deps.HTTP]]
 deps = ["Base64", "CodecZlib", "Dates", "IniFile", "Logging", "LoggingExtras", "MbedTLS", "NetworkOptions", "OpenSSL", "Random", "SimpleBufferStream", "Sockets", "URIs", "UUIDs"]
-git-tree-sha1 = "8c7e6b82abd41364b8ffe40ffc63b33e590c8722"
+git-tree-sha1 = "e1acc37ed078d99a714ed8376446f92a5535ca65"
 uuid = "cd3eb016-35fb-5094-929b-558a96fad6f3"
-version = "1.5.3"
+version = "1.5.5"
 
 [[deps.Hyperscript]]
 deps = ["Test"]
@@ -298,9 +320,9 @@ version = "0.21.3"
 
 [[deps.JSON3]]
 deps = ["Dates", "Mmap", "Parsers", "SnoopPrecompile", "StructTypes", "UUIDs"]
-git-tree-sha1 = "65edf3850efb9cb4ca3b0bf488e29c6c38a23d2d"
+git-tree-sha1 = "84b10656a41ef564c39d2d477d7236966d2b5683"
 uuid = "0f8b85d8-7281-11e9-16c2-39a750bddbf1"
-version = "1.11.1"
+version = "1.12.0"
 
 [[deps.JSONSchema]]
 deps = ["HTTP", "JSON", "URIs"]
@@ -345,9 +367,9 @@ uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
 
 [[deps.LoggingExtras]]
 deps = ["Dates", "Logging"]
-git-tree-sha1 = "5d4d2d9904227b8bd66386c1138cf4d5ffa826bf"
+git-tree-sha1 = "cedb76b37bc5a6c702ade66be44f831fa23c681e"
 uuid = "e6f89c97-d47a-5376-807f-9c37f3926c36"
-version = "0.4.9"
+version = "1.0.0"
 
 [[deps.MIMEs]]
 git-tree-sha1 = "65f28ad4b594aebe22157d6fac869786a255b7eb"
@@ -387,9 +409,9 @@ version = "0.3.20+0"
 
 [[deps.OpenSSL]]
 deps = ["BitFlags", "Dates", "MozillaCACerts_jll", "OpenSSL_jll", "Sockets"]
-git-tree-sha1 = "5628f092c6186a80484bfefdf89ff64efdaec552"
+git-tree-sha1 = "df6830e37943c7aaa10023471ca47fb3065cc3c4"
 uuid = "4d8831e6-92b7-49fb-bdf8-b643e874388c"
-version = "1.3.1"
+version = "1.3.2"
 
 [[deps.OpenSSL_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
@@ -404,9 +426,9 @@ version = "1.4.1"
 
 [[deps.Parsers]]
 deps = ["Dates", "SnoopPrecompile"]
-git-tree-sha1 = "cceb0257b662528ecdf0b4b4302eb00e767b38e7"
+git-tree-sha1 = "b64719e8b4504983c7fca6cc9db3ebc8acc2a4d6"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "2.5.0"
+version = "2.5.1"
 
 [[deps.Pkg]]
 deps = ["Artifacts", "Dates", "Downloads", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "Serialization", "TOML", "Tar", "UUIDs", "p7zip_jll"]
@@ -520,9 +542,9 @@ uuid = "410a4b4d-49e4-4fbc-ab6d-cb71b17b3775"
 version = "0.1.6"
 
 [[deps.URIs]]
-git-tree-sha1 = "e59ecc5a41b000fa94423a578d29290c7266fc10"
+git-tree-sha1 = "ac00576f90d8a259f2c9d823e91d1de3fd44d348"
 uuid = "5c2747f8-b7ea-4ff2-ba2e-563bfd36b1d4"
-version = "1.4.0"
+version = "1.4.1"
 
 [[deps.UUIDs]]
 deps = ["Random", "SHA"]
@@ -570,7 +592,7 @@ version = "17.4.0+0"
 # ╟─cfe70a7a-1642-48a0-b66f-349ccee2c571
 # ╠═aae13cfb-9002-4c69-b2d1-1675ecddcfba
 # ╟─b6d930a1-575f-4927-aeb3-46eacd9a50c4
-# ╠═a0ccb87e-3911-4dba-9114-b4633b34c621
+# ╟─a0ccb87e-3911-4dba-9114-b4633b34c621
 # ╠═dc6812d6-7dc2-459a-9ccf-495aac0942f0
 # ╟─ea35d808-db03-492a-8f36-32b0cf77419b
 # ╠═5a392c22-b692-48ac-a0d2-5577c238f927
@@ -578,9 +600,13 @@ version = "17.4.0+0"
 # ╠═6fbce86e-65da-4d59-ad49-3a1d00a1af5f
 # ╟─2f295bf7-5bef-4ed6-9014-93ed8fcf12fb
 # ╠═28ef6ac5-4475-402f-a963-420e4b320f4b
+# ╟─14e81c39-c046-43a3-859d-39c1b5fa17d5
+# ╠═393f352d-cf58-4102-ac7d-c8c7d74f67bb
 # ╟─831ff4e4-ab3f-4251-83ab-189c10360fd2
 # ╠═6f58d88f-1cbd-4190-a5fd-234ddb0b64b0
 # ╟─59902dd5-63e3-4c90-a70e-3023e8529eac
 # ╠═c7db3e28-6767-49b1-ba34-4cfe8bd2d134
+# ╟─31a4e944-c047-4268-87b4-1b604ae50f1f
+# ╟─9fdf69e0-0957-4c76-9465-7728040e01d7
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
