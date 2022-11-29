@@ -1,6 +1,7 @@
 # PlutoReport.jl
 
 [![docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://dhruvasambrani.github.io/PlutoReport.jl)
+[![DOI](https://zenodo.org/badge/463202023.svg)](https://zenodo.org/badge/latestdoi/463202023)
 
 Make awesome reports and talk slides in [Pluto](https://github.com/fonsp/Pluto.jl)! 
 
