@@ -50,12 +50,11 @@ And you are done!!
 
 # Examples of reports and talks
 
-- A fifteen minute [presentation]() about Quantum Walks
-- A [report]() on Quantum Walks
-
 You can find example notebooks [here](https://github.com/DhruvaSambrani/PlutoReport.jl/tree/main/examples) with the associated bibtex files. Make sure you have the notebook and bibtex files in the same folder!
 
 If you just want to see how it looks like, look at the [hosted example page](./example.html). This however will not have all the fancy features that makes this package useful.
+
+I've also made a repo for more examples of PlutoReport - [PlutoReport-Examples](https://github.com/dhruvasambrani/PlutoReport-Examples), [website](/PlutoReport-Examples)
 
 **Send a PR to feature your works in PlutoReports.jl!!**
 
